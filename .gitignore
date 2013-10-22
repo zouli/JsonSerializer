@@ -1,3 +1,5 @@
 /build
 /src/main/bin
 /src/main/gen
+/.gradle
+/.idea

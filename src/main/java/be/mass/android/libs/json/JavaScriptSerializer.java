@@ -11,9 +11,9 @@ public class JavaScriptSerializer {
         Json.serialize(obj, this, output);
     }
 
-    public Object deserialize(String input, Class<?> clazz) {
+    public <T> T deserialize(String input, Class<T> clazz) {
         if (input.matches("^\\[(.*)\\]$")) {
-            return Json.deserializeArray(input, this, clazz);
+            return (T) Json.deserializeArray(input, this, clazz.getComponentType());
         } else {
             return Json.deserialize(input, this, clazz);
         }
